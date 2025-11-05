@@ -1,5 +1,6 @@
-import './App.css';
+import './App.css'; // importando css do arquivo
 
+// os componentes são basicamente funções
 function App() {
 
     const items = [
@@ -86,14 +87,18 @@ function App() {
         }
     ];
 
-    return ( 
-        <>
-            <section className="items">
-                <h4>Jersey Shop Made with React JS</h4>
+    // o arquivo jsx mistura html com javascript e usamos {} dentro do html para isso
+    const shopName = "Jersey Shop";
+
+    return ( // sempre que temos multiplas linhas sempre colocamos parenteses e tudo que estiver dentro do return precisa está dentro de um unico elemento raiz que pode ser um fragment: <></>
+        <> 
+         {/* o html é digitado dentro do return */}
+            <section className="items"> {/* className tomou o lugar de class */}
+                <h4>{shopName}</h4> {/* adicioando um javascript dentro do html - jsx */}
                 
                 <div className="product selected">
                     <div className="photo">
-                        <img src="././img/real_madrid.webp" />
+                        <img src="././img/real_madrid.webp" /> {/* existem elementos que não tem tag de fechamado, por isso precisamos fecha-la na tag de inicio */}
                     </div>
                     <div className="description">
                         <span className="name">Real Madrid</span>
@@ -248,4 +253,4 @@ function App() {
     );
 }
 
-export default App
+export default App; // exportando componente
