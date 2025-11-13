@@ -103,7 +103,11 @@ function App() {
         <h4>{shopName}</h4>{" "}
         {/* adicioando um javascript dentro do html - jsx */}
         {items.map((item) => ( // essa propriedade possui o mesmo nome do parametro da função map
-          <Item item={item} key={item.id} />
+          <Item
+            selectProduct ={(id) => alert(`${id}`)}
+            item={item}
+            key={item.id}
+          />
         ))}
       </section>
       {itemsInBag.length > 0 && <OrderDetails />} {/* se o tamanho de itemsInBag for maior que 0 então ele exibe o OrderDetails se não, ele não exibe */}

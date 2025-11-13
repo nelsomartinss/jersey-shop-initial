@@ -1,7 +1,7 @@
-function Item({item}) { // passando uma prop para o componente
+function Item({item, selectProduct}) { // passando uma prop para o componente
     return (
         <>
-            <div className={`product ${item.isInBag ? 'selected' : ''}`} > {/* aqui o operador && não é muito bom por que ele inclue a classe false no outros itens */}
+            <div onClick={() => selectProduct(item.id)} className={`product ${item.isInBag ? 'selected' : ''}`} > {/* aqui o operador && não é muito bom por que ele inclue a classe false no outros itens */}
                 {/* se o isInBag for true ele coloca a classe selected */}
                 {/* o title poderia ser o id também se ele for único */}
                 {/* cada id é passado para key por que é assim que ele identifica cada elemento */}
