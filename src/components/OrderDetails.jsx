@@ -2,7 +2,7 @@
 // criando um novo componente
 function OrderDetails() {
     return (
-        <>
+        <> {/* o generic não aparece na DOM */}
             <section className="summary">
                 <strong>Order Details</strong>
                 <table>
