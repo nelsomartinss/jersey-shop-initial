@@ -1,6 +1,7 @@
 import "./App.css"; // importando css do arquivo
+import OrderDetails from "./components/OrderDetails"; // importanto um novo componente
 
-// os componentes são basicamente funções
+// os componentes são basicamente funções - devemos dividir a aplicação em componentes desde o ínicio e quanto menores eles forem, melhor. 
 function App() {
   const items = [
     {
@@ -86,6 +87,8 @@ function App() {
     },
   ];
 
+  const itemsInBag = items.filter(item => item.isInBag); // criando uma array nova que filtra todos os items que tem o isInBag igual a true
+
   // o arquivo jsx mistura html com javascript e usamos {} dentro do html para isso
   const shopName = "Jersey Shop";
 
@@ -99,7 +102,7 @@ function App() {
         <h4>{shopName}</h4>{" "}
         {/* adicioando um javascript dentro do html - jsx */}
         {items.map((item) => (
-          <div key={item.id} className={`product ${item.isInBag ?  'selected' : ''}`} > {/* aqui o operador && não é muito bom por que ele inclue a classe false no outros itens */}
+          <div key={item.id} className={`product ${item.isInBag ? 'selected' : ''}`} > {/* aqui o operador && não é muito bom por que ele inclue a classe false no outros itens */}
             {/* se o isInBag for true ele coloca a classe selected */}
             {/* o title poderia ser o id também se ele for único */}
             {/* cada id é passado para key por que é assim que ele identifica cada elemento */}
@@ -122,29 +125,7 @@ function App() {
           </div>
         ))}
       </section>
-
-      <section className="summary">
-        <strong>Order Details</strong>
-        <table>
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1x Real Madrid</td>
-              <td>$ 119.99</td>
-            </tr>
-
-            <tr>
-              <th>Total</th>
-              <th>$ 119.99</th>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+      {itemsInBag.length > 0 && <OrderDetails />} {/* se o tamanho de itemsInBag for maior que 0 então ele exibe o OrderDetails se não, ele não exibe */}
     </>
   );
 }
